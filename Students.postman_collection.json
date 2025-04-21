@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "8c99073b-d80d-4e8c-9bd4-482be2be031d",
+		"name": "Students",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15674607",
+		"_collection_link": "https://theblackpl.postman.co/workspace/Movies~d1d8e89e-fc90-4090-92c6-43ed8f0aaec3/collection/15674607-8c99073b-d80d-4e8c-9bd4-482be2be031d?action=share&source=collection_link&creator=15674607"
+	},
+	"item": [
+		{
+			"name": "Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Ali\",\r\n    \"school\" : \"Hokamaa\",\r\n    \"age\" : 12,\r\n    \"mark\" : 90\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/students",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Edit",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Aboodee khara\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/students/68067a7ad9a64e0375aef611",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"students",
+						"68067a7ad9a64e0375aef611"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/students/68067a7ad9a64e0375aef611",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"students",
+						"68067a7ad9a64e0375aef611"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
