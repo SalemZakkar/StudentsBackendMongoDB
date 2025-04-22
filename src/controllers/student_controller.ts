@@ -1,5 +1,7 @@
 import * as studentSchema from "../model/student_model";
 import {Request, Response,} from "express";
+import {BaseApiGet} from "../utils/BaseApiGet";
+import {StudentModel} from "../model/student_model";
 
 export function save(req: Request, res: Response,) {
     new studentSchema.StudentModel(req.body).save().then(() => {
@@ -48,17 +50,14 @@ export function update(req: Request, res: Response,) {
 }
 
 
-export function get(res: Response,) {
-    studentSchema.StudentModel.find().then((student) => {
-        res.status(200).send({
-            message: "Students get successfully",
-            totalRecord: student.length,
-            data: student,
-        })
-    }).catch((e) => {
-        res.status(500).send({
-            message: e.message,
-            stack: e.stack,
-        })
+export async function get(req: Request, res: Response,) {
+    let query = StudentModel.find();
+    let params = new BaseApiGet(query, req,).paginate().filter();
+    let students = await params.query;
+    res.status(200).send({
+        message: "Student Get Successfully",
+        itemCount: await StudentModel.countDocuments(),
+        data: students
     })
+
 }
