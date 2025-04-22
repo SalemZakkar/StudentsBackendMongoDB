@@ -1,5 +1,5 @@
 import * as routerExp from "express";
-import * as controller from "../controllers/student_controller";
+import * as controller from "../controller/student_controller";
 
 const router = routerExp.Router();
 
